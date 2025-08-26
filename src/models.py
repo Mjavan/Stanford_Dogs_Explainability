@@ -131,10 +131,26 @@ class CAE224(nn.Module):
 if __name__=="__main__":
 
     model1 = EncoderClassifier()
+
+    print(f'model1:{model1}')
     a = torch.randn(1,3,224,224)
     out = model1(a)
     print(f'out:{out.shape}')
 
+    layers = dict(model1.named_modules())
+    for key in layers.keys():
+        print(f'key:{key}')
+
     model2= CAE224()
+    #print(f'model2:{model2}')
+    print(f'layers:{dict(model2.named_modules())}')
+    layers2 = dict(model2.named_modules())
+    for key in layers2.keys():
+        if int(key.split('.')) in [21,22,23]:
+            print
+
+        print(f'key:{key}')
+
+
     b = model2(a)
     print(f'b:{b.shape}')

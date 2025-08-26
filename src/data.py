@@ -7,6 +7,7 @@ from tqdm import tqdm
 import torch
 import torchvision
 from torchvision import transforms
+from torch.utils.data import DataLoader
 
 ABC = abc.ABCMeta('ABC', (object,), {'__slots__': ()})
 
@@ -130,4 +131,21 @@ if __name__=="__main__":
     print(data.m)
     print(data.c0_data.shape) 
     print(data.c1_data.shape) 
+
+    print(type(data.c0_data))
+    print(type(data.c1_data))
+
+    print(data.c0_data[:50].shape)
+
+    gr1 = data.c0_data[:50]
+    gr2 = data.c1_data[:50]
+
+    #gr1_loader = DataLoader(gr1, batch_size=5, shuffle=False, drop_last=True)
+
+    #for img in gr1_loader:
+    #    print(type(img))
+    #    print(f'img:{img.shape}')
+    #    break
+
+    
 
