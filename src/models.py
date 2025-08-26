@@ -154,3 +154,7 @@ if __name__=="__main__":
 
     b = model2(a)
     print(f'b:{b.shape}')
+
+    print('Salam')
+
+    print('Goodbuy')
